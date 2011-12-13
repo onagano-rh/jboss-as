@@ -985,6 +985,18 @@
             </dependency>
 
             <dependency>
+                <groupId>com.googlecode.jtype</groupId>
+                <artifactId>jtype</artifactId>
+                <version>${version.com.googlecode.jtype}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.google.code.findbugs</groupId>
+                        <artifactId>jsr305</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
                 <groupId>com.sun.codemodel</groupId>
                 <artifactId>codemodel</artifactId>
                 <version>${version.com.sun.codemodel}</version>
