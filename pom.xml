@@ -5911,7 +5911,6 @@
                 <module>appclient</module>
                 <module>build</module>
                 <module>build-config</module>
-                <module>arquillian</module>
                 <module>cli</module>
                 <module>client/ejb</module>
                 <module>client/jms</module>
@@ -5950,6 +5949,25 @@
                 <module>webservices</module>
                 <module>weld</module>
                 <module>xts</module>
+            </modules>
+        </profile>
+
+        <!--  public-repositories and testsuite
+         |    The EAP testsuite and arquillian modules can only be built/run if the public 
+         |    JBoss.org Maven repository and Maven central are available.
+         |    If the property "public-repos" is set, it means that the required public 
+         |    repositories are configured and available in the Maven settings, and therefore 
+         |    the arquillian and testsuite modules will be included in the build.
+         -->
+        <profile>
+            <id>testsuite</id>
+            <activation>
+                <property>
+                    <name>public-repos</name>
+                </property>
+            </activation>
+            <modules>
+                <module>arquillian</module>
                 <module>testsuite/shared</module>
                 <module>testsuite</module>
             </modules>
