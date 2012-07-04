@@ -35,7 +35,7 @@
         </jvm.args.dirs>
 
         <!-- Used to provide an absolute location for the distribution under test. -->
-        <jboss.dist>${jbossas.project.dir}/build/target/jboss-as-${jboss.as.release.version}</jboss.dist>
+        <jboss.dist>${jbossas.project.dir}/build/target/jboss-eap-6.0</jboss.dist>
         <jboss.home>${jboss.dist}</jboss.home>
 
         <!-- Used to provide an absolute location for the XSLT scripts. -->

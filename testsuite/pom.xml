@@ -87,7 +87,7 @@
 
         <!-- Used to provide an absolute location for the distribution under test. -->
         <!-- This value is overridden in modules with the correct relative pathname. -->
-        <jboss.dist>${project.basedir}/../build/target/jboss-as-${jboss.as.release.version}</jboss.dist>
+        <jboss.dist>${project.basedir}/../build/target/jboss-eap-6.0</jboss.dist>
         <jboss.home>${jboss.dist}</jboss.home>
 
         <!-- Used to provide an absolute location for the XSLT scripts. -->
