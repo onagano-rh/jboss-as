@@ -181,6 +181,7 @@
                                             <exclude>org.apache.geronimo.specs:geronimo-stax-api_1.0_spec</exclude>
                                             <exclude>org.apache.xalan:serializer</exclude>
                                             <exclude>org.apache.xalan:xalan</exclude>
+                                            <exclude>org.codehaus.woodstox:woodstox-core-lgpl</exclude>
                                             <exclude>org.hibernate:ejb3-persistence</exclude>
                                             <exclude>org.hibernate.java-persistence:jpa-api</exclude>
                                             <exclude>org.jboss.integration:jboss-jca-spi</exclude>
@@ -5281,6 +5282,10 @@
                         <artifactId>wstx-lgpl</artifactId>
                     </exclusion>
                     <exclusion>
+                        <groupId>org.codehaus.woodstox</groupId>
+                        <artifactId>woodstox-core-lgpl</artifactId>
+                    </exclusion>
+                    <exclusion>
                         <groupId>org.jboss.logging</groupId>
                         <artifactId>jboss-logging-spi</artifactId>
                     </exclusion>
@@ -5546,6 +5551,10 @@
                     <exclusion>
                         <groupId>org.codehaus.woodstox</groupId>
                         <artifactId>wstx-lgpl</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.codehaus.woodstox</groupId>
+                        <artifactId>woodstox-core-lgpl</artifactId>
                     </exclusion>
                     <exclusion>
                         <groupId>org.jboss.logging</groupId>
