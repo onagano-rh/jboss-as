@@ -133,6 +133,14 @@ public final class ResourceAdapterDeploymentService extends AbstractResourceAdap
      */
     @Override
     public void stop(StopContext context) {
+        if (raName != null && deploymentServiceName != null) {
+            ConnectorServices.unregisterDeployment(raName, deploymentServiceName);
+        }
+
+        if (raName != null) {
+            ConnectorServices.unregisterResourceAdapterIdentifier(raName);
+        }
+
         if (value != null && value.getDeployment() != null) {
             String deploymentName = value.getDeployment().getDeploymentName();
 
@@ -144,14 +152,6 @@ public final class ResourceAdapterDeploymentService extends AbstractResourceAdap
 
     @Override
     public void unregisterAll(String deploymentName) {
-
-        if (raName != null && deploymentServiceName != null) {
-            ConnectorServices.unregisterDeployment(raName, deploymentServiceName);
-        }
-
-        if (raName != null) {
-            ConnectorServices.unregisterResourceAdapterIdentifier(raName);
-        }
 
         super.unregisterAll(deploymentName);
 
