@@ -46,6 +46,9 @@
                     <includes>
                         <include>**/*TestCase.java</include>
                     </includes>
+                    <excludes>
+                        <exclude>org/jboss/as/subsystem/test/MavenURLResourceTestCase.java</exclude>
+                    </excludes>
                     <enableAssertions>false</enableAssertions>
                 </configuration>
             </plugin>

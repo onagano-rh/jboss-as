@@ -213,6 +213,7 @@
                         <configuration>
                             <excludes>
                                 <exclude>**/web/session/*TestCase.java</exclude>
+                                <exclude>org/jboss/as/web/test/WebSubsystemTestCase.java</exclude>
                             </excludes>
                             <enableAssertions>false</enableAssertions>
                         </configuration>
