@@ -99,6 +99,10 @@ class DomainApiHandler implements ManagementHttpHandler {
     private static Pattern MULTIPART_FD_BOUNDARY =  Pattern.compile("^multipart/form-data.*;\\s*boundary=(.*)$");
     private static Pattern DISPOSITION_FILE =  Pattern.compile("^form-data.*filename=\"?([^\"]*)?\"?.*$");
 
+    static {
+        ROOT_LOGGER.debug("Dabug patch of case 00745173 is enabled.");
+    }
+
     /**
      * Represents all possible management operations that can be executed using HTTP GET
      */
@@ -310,6 +314,7 @@ class DomainApiHandler implements ManagementHttpHandler {
 
         try {
             dmr = isGet ? convertGetRequest(request) : convertPostRequest(http.getRequestBody(), encode);
+            ROOT_LOGGER.debugf("%s|%s|%s|%s", request, requestMethod, dump2String(requestHeaders), dmr);
         } catch (Exception iae) {
             ROOT_LOGGER.debugf("Unable to construct ModelNode '%s'", iae.getMessage());
             sendError(http,isGet,iae);
@@ -330,6 +335,14 @@ class DomainApiHandler implements ManagementHttpHandler {
 
         boolean pretty = dmr.hasDefined("json.pretty") && dmr.get("json.pretty").asBoolean();
         writeResponse(http, isGet, pretty, response, status, encode);
+    }
+
+    private String dump2String(Headers hdrs) {
+        StringBuilder ret = new StringBuilder();
+        for (String k : hdrs.keySet()) {
+            ret.append(", ").append(k).append(": ").append(hdrs.get(k));
+        }
+        return ret.toString();
     }
 
     private void sendError(final HttpExchange http, boolean isGet, Throwable t) throws IOException {
